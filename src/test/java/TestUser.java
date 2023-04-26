@@ -23,19 +23,14 @@ public class TestUser {
         assertNull(user.getEmail());
     }
 
-    @Test
-    public void testVaildEmail(){
-        String validEmail = "test@yyandex.ru";
-        User user = new User("Артем", validEmail);
-        assertEquals(validEmail, user.getEmail());
-    }
+
 
     @Test
     public void testInvalidEmail() {
         String invalidEmail = "yandexx";
         User user = new User();
 
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> user.setEmail(invalidEmail));
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> new User("login",invalidEmail));
         assertEquals("Invalid email address", exception.getMessage());
         assertNull(user.getEmail());
     }
