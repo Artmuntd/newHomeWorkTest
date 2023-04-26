@@ -42,5 +42,15 @@ public class TestUser {
         assertNotEquals(user.getLogin(), user.getEmail());
     }
 
+    @Test
+    public void testConstructorArguments() {
+        String invalidLogin = "Артем!";
+        String invalidEmail = "yandex@name";
+
+        assertThrows(IllegalArgumentException.class, () -> new User(invalidLogin, "yandex@name"));
+        assertThrows(IllegalArgumentException.class, () -> new User("Артем!",  invalidEmail));
+    }
+
+
 
 }
